@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PLAYMATE — Найди место. Собери компанию.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="#"><span class="logo-mark">P</span> PLAYMATE</a>
+    <nav>
+      <a href="#places">Локации</a>
+      <a href="#events">Найти компанию</a>
+      <a href="#how">Как это работает</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-ghost" id="loginBtn">Войти</button>
+      <button class="btn btn-primary" id="createEventTop">Создать событие <span>↗</span></button>
+    </div>
+    <button class="mobile-menu" id="mobileMenu">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse"></span> ТВОЯ СЛЕДУЮЩАЯ АКТИВНОСТЬ НАЧИНАЕТСЯ ЗДЕСЬ</div>
+        <h1>Найди место.<br><span>Собери компанию.</span></h1>
+        <p>Спорт, приключения и отдых — бронируй площадки<br class="desktop-only"> или находи людей, с которыми хочется провести время.</p>
+        <div class="hero-search">
+          <label><span>⌖</span><div><small>Где?</small><input id="locationInput" value="Баку, Азербайджан" /></div></label>
+          <label><span>◈</span><div><small>Активность</small><select id="heroCategory"><option value="all">Все активности</option><option value="football">Футбол</option><option value="shooting">Тир</option><option value="tennis">Теннис</option><option value="rest">Отдых</option></select></div></label>
+          <label><span>▦</span><div><small>Когда?</small><input type="date" id="dateInput" /></div></label>
+          <button class="search-btn" id="searchBtn">Найти <span>→</span></button>
+        </div>
+        <div class="hero-tags"><span>Популярно:</span><button data-filter="football">Футбол</button><button data-filter="shooting">Тиры</button><button data-filter="rest">Отдых на природе</button></div>
+      </div>
+      <div class="hero-bottom"><span>01 / 04</span><span>PLAY MORE. LIVE MORE.</span></div>
+    </section>
+
+    <section class="stats">
+      <div><strong>120+</strong><span>локаций</span></div><div><strong>2.4k</strong><span>участников</span></div><div><strong>850+</strong><span>мероприятий</span></div><div class="stats-note">Больше активностей.<br><b>Меньше планирования.</b></div>
+    </section>
+
+    <section class="section" id="places">
+      <div class="section-head">
+        <div><div class="eyebrow dark">ВЫБИРАЙ СВОЁ</div><h2>Найди идеальное <span>место</span></h2><p>От футбольного поля до уютного места за городом.</p></div>
+        <a class="text-link" href="#places">Все локации <span>↗</span></a>
+      </div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">Все</button><button class="filter" data-filter="football">⚽ Футбол</button><button class="filter" data-filter="shooting">🎯 Тиры</button><button class="filter" data-filter="tennis">🎾 Теннис</button><button class="filter" data-filter="rest">🏕 Отдых</button><button class="filter" data-filter="basketball">🏀 Баскетбол</button>
+      </div>
+      <div class="place-grid" id="placeGrid"></div>
+    </section>
+
+    <section class="community" id="events">
+      <div class="community-copy">
+        <div class="eyebrow">НЕ ХВАТАЕТ ИГРОКОВ?</div>
+        <h2>Твоя команда<br>может быть <span>здесь.</span></h2>
+        <p>Создай событие или присоединяйся к другим. Найди людей с похожими интересами, уровнем и настроением.</p>
+        <button class="btn btn-primary" id="createEventBtn">Создать мероприятие <span>↗</span></button>
+      </div>
+      <div class="event-preview">
+        <div class="event-top"><span class="live-dot"></span> СКОРО НАЧНЁТСЯ <span class="event-date">СЕГОДНЯ</span></div>
+        <div class="event-image"></div>
+        <div class="event-info">
+          <div class="event-category">⚽ ФУТБОЛ · БАКУ</div><h3>Вечерний футбол 5×5</h3>
+          <div class="event-meta"><span>◷ Сегодня, 19:30</span><span>⌖ Баку, Низами</span></div>
+          <div class="event-footer"><div class="avatars"><span>R</span><span>M</span><span>A</span><span>+2</span></div><span class="spots">3 места свободно</span><button class="join-btn" data-join="Вечерний футбол 5×5">Присоединиться ↗</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section events-section">
+      <div class="section-head"><div><div class="eyebrow dark">СООБЩЕСТВО</div><h2>Активности рядом <span>с тобой</span></h2><p>Присоединяйся к событиям или создавай свои.</p></div><a class="text-link" href="#events">Все события ↗</a></div>
+      <div class="event-list" id="eventList"></div>
+    </section>
+
+    <section class="how" id="how">
+      <div class="eyebrow">ПРОСТО. БЫСТРО. ВМЕСТЕ.</div><h2>Три шага до <span>движения</span></h2>
+      <div class="steps"><article><div class="step-num">01</div><div class="step-icon">⌕</div><h3>Найди</h3><p>Выбери активность, локацию и подходящее время.</p></article><article><div class="step-num">02</div><div class="step-icon">◈</div><h3>Забронируй</h3><p>Забронируй место для себя или всей компании.</p></article><article><div class="step-num">03</div><div class="step-icon">↗</div><h3>Действуй</h3><p>Встречайся, играй, отдыхай и знакомься.</p></article></div>
+    </section>
+  </main>
+
+  <footer><a class="logo" href="#"><span class="logo-mark">P</span> PLAYMATE</a><span>Найди своё движение.</span><span>© 2026 PLAYMATE</span></footer>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <button class="modal-close" id="modalClose">×</button><div class="eyebrow dark">PLAYMATE</div><h2 id="modalTitle">Забронировать локацию</h2><p id="modalSubtitle">Оставь детали — это демо, данные не отправляются.</p>
+      <form id="demoForm"><label>Имя<input required placeholder="Как тебя зовут?"></label><label>Дата<input type="date" required id="modalDate"></label><label>Количество участников<select><option>1–2 человека</option><option>3–5 человек</option><option>6–10 человек</option><option>10+ человек</option></select></label><button class="btn btn-primary full" type="submit">Подтвердить <span>↗</span></button></form>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
